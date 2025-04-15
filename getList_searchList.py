@@ -7,7 +7,7 @@ import pandas as pd  # pandas 모듈
 import urllib.parse
 import requests
 
-keyword = '수상레포츠'
+keyword = '윈드서핑'
 encoded_keyword = urllib.parse.quote(keyword)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
@@ -102,7 +102,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = f'list/getlist_search_{keyword}.csv'
+    filename = f'list/searchlist1_{keyword}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:

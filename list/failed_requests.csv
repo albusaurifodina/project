@@ -30,3 +30,42 @@
 20,부산 요트투어,http://tong.visitkorea.or.kr/cms2/website/10/2802910.jpg,HTTP 404
 21,부산 요트투어,http://tong.visitkorea.or.kr/cms2/website/11/2802911.jpg,Not image: text/html
 22,부산 요트투어,http://tong.visitkorea.or.kr/cms2/website/12/2802912.jpg,Not image: text/html
+1,2018 정남진장흥물축제,http://tong.visitkorea.or.kr/cms2/website/85/2561085.jpg,"HTTPConnectionPool(host='tong.visitkorea.or.kr', port=80): Read timed out. (read timeout=10)"
+2,하조대해수욕장,http://tong.visitkorea.or.kr/cms2/website/57/1544957.jpg,"HTTPConnectionPool(host='tong.visitkorea.or.kr', port=80): Read timed out. (read timeout=10)"
+3,하조대해수욕장,http://tong.visitkorea.or.kr/cms2/website/59/1544959.jpg,[Errno 2] No such file or directory: 'images\\list/searchlist1_바나나보트.csv_하조대해수욕장_3.jpg'
+4,대천해수욕장,http://tong.visitkorea.or.kr/cms2/website/90/1074490.jpg,[Errno 2] No such file or directory: 'images\\list/searchlist1_바나나보트.csv_대천해수욕장_4.jpg'
+5,해운대해수욕장,http://tong.visitkorea.or.kr/cms2/website/12/1074612.jpg,[Errno 2] No such file or directory: 'images\\list/searchlist1_바나나보트.csv_해운대해수욕장_5.jpg'
+20,해운대해수욕장,http://tong.visitkorea.or.kr/cms2/website/53/1825153.jpg,"HTTPConnectionPool(host='tong.visitkorea.or.kr', port=80): Read timed out. (read timeout=10)"
+21,해운대해수욕장,http://tong.visitkorea.or.kr/cms2/website/54/1825154.jpg,"('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+25,해운대해수욕장,http://tong.visitkorea.or.kr/cms2/website/28/1931328.jpg,"HTTPConnectionPool(host='tong.visitkorea.or.kr', port=80): Read timed out. (read timeout=10)"
+51,해운대해수욕장,http://tong.visitkorea.or.kr/cms2/website/98/2928298.jpg,"HTTPConnectionPool(host='tong.visitkorea.or.kr', port=80): Read timed out. (read timeout=10)"
+6,하조대해수욕장,http://tong.visitkorea.or.kr/cms2/website/79/1544979.jpg,"HTTPConnectionPool(host='tong.visitkorea.or.kr', port=80): Read timed out."
+13,이호테우해변,http://tong.visitkorea.or.kr/cms2/website/21/2785421.jpg,HTTP 404
+14,이호테우해변,http://tong.visitkorea.or.kr/cms2/website/04/2785404.jpg,HTTP 404
+15,이호테우해변,http://tong.visitkorea.or.kr/cms2/website/93/2785393.jpg,Not image: text/html
+16,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/74/2775374.jpg,HTTP 404
+17,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/73/2775373.jpg,Not image: text/html
+18,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/71/2775371.jpg,HTTP 404
+19,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/70/2775370.jpg,HTTP 404
+20,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/68/2775368.jpg,HTTP 404
+21,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/67/2775367.jpg,HTTP 404
+22,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/66/2775366.jpg,HTTP 404
+23,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/64/2775364.jpg,Not image: text/html
+24,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/61/2775361.jpg,Not image: text/html
+25,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/59/2775359.jpg,Not image: text/html
+26,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/53/2775353.jpg,Not image: text/html
+27,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/60/2801860.jpeg,HTTP 404
+28,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/59/2801859.jpeg,Not image: text/html
+29,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/58/2801858.jpeg,HTTP 404
+30,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/57/2801857.jpeg,HTTP 404
+31,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/55/2801855.jpeg,HTTP 404
+32,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/54/2801854.jpeg,Not image: text/html
+33,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/50/2801850.jpeg,Not image: text/html
+34,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/49/2801849.jpeg,Not image: text/html
+35,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/46/2801846.jpeg,HTTP 404
+36,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/45/2801845.jpeg,Not image: text/html
+37,양양 서피비치,http://tong.visitkorea.or.kr/cms2/website/90/2711590.jpg,Not image: text/html
+38,죽도해수욕장,http://tong.visitkorea.or.kr/cms2/website/15/2628215.jpg,Not image: text/html
+39,대진해변,http://tong.visitkorea.or.kr/cms2/website/84/2800684.jpeg,Not image: text/html
+40,대진해변,http://tong.visitkorea.or.kr/cms2/website/81/2800681.jpeg,Not image: text/html
+41,대진해변,http://tong.visitkorea.or.kr/cms2/website/70/2800670.jpeg,Not image: text/html

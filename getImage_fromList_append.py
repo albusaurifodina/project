@@ -7,7 +7,8 @@ from io import BytesIO
 save_folder = "images"
 os.makedirs(save_folder, exist_ok=True)
 
-csv_file = 'list/getList_searchList03.csv'
+searchword = '윈드서핑'
+csv_file = 'list/searchlist1_Detail_윈드서핑.csv'
 success_log = 'list/success_log.csv'
 fail_log = 'list/failed_requests.csv'
 
@@ -52,7 +53,7 @@ with open(csv_file, 'r', encoding='utf-8') as f:
 
             image = Image.open(BytesIO(response.content))
             safe_title = title.replace(" ", "_")
-            filename = f"{safe_title}_{idx}.jpg"
+            filename = f"{safe_title}_{searchword}_{idx}.jpg"
             filepath = os.path.join(save_folder, filename)
             image.save(filepath)
 

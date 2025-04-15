@@ -5,13 +5,16 @@ import urllib.parse
 import pandas as pd  # pandas 모듈
 import urllib.parse
 import requests
-
-title = '해변'
+'''
+사진갤러리 상세 목록을 조회하는 기능입니다. 
+사진갤러리  목록  조회를  통해  제목에  해당하는  그룹화된  목록이며,  사진의 URL경로, 촬영월, 촬영장소 등의 내용을 목록으로 제공합니다. 
+'''
+title = '윈드서핑'
 encoded_title = urllib.parse.quote(title)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
-pageNumber = 2
+pageNumber = 1
 pageSize = 100
 
 # 웹페이지에서 데이터를 가져오는 함수
@@ -100,7 +103,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = 'list/getlist_Detail02.csv'
+    filename = f'list/searchlist1_Detail_{title}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:
