@@ -1,0 +1,26 @@
+D:\
+TeamProject
+
+getImage_fromList.py / 
+save Image from csv
+getImage_govSave.py / imageExtractor(contentId=1095732) 디테일 이미지 저장
+getImage_govUrl.py / imageExtractor(contentId=1095732) 디테일 이미지 url 출력
+getImage_unsplash.py / unsplash 사이트 이미지 저장
+
+getList_areaCode.py / areacode1 / 1. 강남구 2,강동구...../getlist_areaCode.csv/ 
+getList_categoryCode.py / contentTypeId = 14 /getlist_category.csv
+
+getList_galleryList.py /galleryList1 /getlist_galleryList.csv
+제목,이미지URL,촬영장소,사진작가,검색키워드,콘텐츠ID,콘텐츠타입ID,등록일시,수정일시
+가덕도 연대봉,http://tong.visitkorea.or.kr/cms2/website/27/2925827.jpg,부산광역시 강서구 천성동,부산관광공사,"가덕도 연대봉, 부산광역시 강서구, 부산관광공.....
+
+
+Test>>
+dotenv.env
+getList_galleryListTest.py
+main.py
+saveImage.py
+utils.py
+
+images>>
+unsplash_beach>>

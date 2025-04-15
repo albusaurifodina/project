@@ -1,0 +1,43 @@
+1 galleryList1  관광사진갤러리 목록 조회 
+2 gallerySearchList1  관광사진갤러리 키워드검색 목록 조회 
+3 galleryDetailList1  관광사진갤러리 상세 목록 조회 
+4 gallerySyncDetailList1  관광사진정보 동기화 조회 
+
+
+1 galleryList1  관광사진갤러리 목록 조회 
+Call Back URL  http://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1
+
+end_point = 'http://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1'
+
+Request Parameter
+f'?serviceKey={service_key}'
+f'&numOfRows={Size}'
+f'&pageNo={No}'
+f'&MobileOS=ETC'
+f'&MobileApp=AppTest'
+f'&_type=json'
+f'&arrange=B'
+
+Response Message
+resultCode
+resultMsg
+numOfRows
+pageNo
+totalCount
+galContentId
+galContentTypeId
+galTitle
+galWebImageUrl
+galCreatedtime
+galModifiedtime
+galPhotographyMont 
+galPhotographyLocation
+galPhotographer 
+galSearchKeyword
+
+
+
+관광사진 갤러리를 최근수정순으로 조회 
+
+ 응답 
+

@@ -1,0 +1,209 @@
+오픈API
+XML JSON 한국관광공사_국문 관광정보 서비스_GW
+
+https://www.data.go.kr/data/15101578/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/detailImage1
+
+--
+
+하고싶었던 건 아니고..의무라서 시작한건데
+의외로 재미있어서 다행임
+---
+
+pdf 가 아닌 오피스 문서로 올려놓는 이 무식함 어쩔
+
+-----
+
+인증키 발급현황
+일반	2025/04/11	신규발급	
+azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D
+
+데이터포맷	JSON+XML
+End Point	http://apis.data.go.kr/B551011/KorService1
+
+요청변수(Request Parameter) 필수(1), 옵션(0) 
+numOfRows / 한페이지결과수  / 옵션(0) 
+샘플데이터 / 10
+
+pageNo / 페이지번호 / 옵션(0) 
+샘플데이터 / 1
+
+MobileOS	/ OS 구분 / 필수(1)
+샘플데이터 / ETC
+IOS (아이폰), AND (안드로이드), WIN (윈도우폰), ETC(기타)
+
+MobileApp / 서비스명(어플명) / 필수(1)
+샘플데이터 / AppTest )
+
+serviceKey	/ 공공데이터포털에서 발급받은 인증키(서비스키) /
+샘플데이터 / 인증키 / 필수(1)
+
+_type / 응답메세지 형식 / 옵션(0) 
+샘플데이터 / json
+REST방식의 URL호출 시 json값 추가(디폴트 응답메세지 형식은XML)
+
+contentId	/ 콘텐츠ID / 필수(1)
+샘플데이터 / 1095732
+
+imageYN / 이미지조회1 / 옵션(0) 
+샘플데이터 / Y
+Y=콘텐츠이미지조회 N=”음식점”타입의음식메뉴이미지
+
+subImageYN /  이미지조회 2 / 옵션(0) 
+샘플데이터 / Y
+Y=원본,썸네일이미지조회,공공누리 저작권유형정보조회 N=Null
+
+--
+
+응답메시지 (Response Message) 
+
+항목명  항목설명  항목크기  항목구분  샘플데이터  상세내용 
+resultCode  결과코드  4  1  0  응답결과코드 
+resultMsg  결과메시지  4  1  OK  응답결과메시지 
+numOfRows  한페이지결과수  4  1  10  한페이지결과수 
+pageNo  페이지번호  4  1  1  현재페이지번호 
+totalCount  전체결과수  5  1  4  전체결과수 
+contentid  콘텐츠ID  12  1  1095732  콘텐츠ID 
+imgname  이미지명  1000  0  이미지명 
+originimgurl  원본이미지  100  0 
+http://tong.visitkorea.or.kr/cms/resource/32/2680832_image2_1.jpg  /원본이미지/  (약 500*333 size) 
+
+Type1:제1유형(출처표시-권장
+Type3:제3유형(제1유형+변경금지)
+
+serialnum  이미지일련번호  12  0  
+샘플데이터 / 2680832_11
+
+cpyrhtDivCd  저작권 유형  10  0
+샘플데이터 /  Type1 
+
+smallimageurl  썸네일이미지(약 160*100 size)/  100  0 / 
+샘플데이터 /  http://tong.visitkorea.or.kr/cms/resource/32/2680832_image2_1.jpg
+
+
+샘플
+https://apis.data.go.kr/B551011/KorService1/detailImage1?serviceKey=azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=1095732&imageYN=Y&subImageYN=Y&numOfRows=10&pageNo=1
+
+https://apis.data.go.kr/B551011/KorService1/detailImage1?
+
+serviceKey=azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D
+
+&MobileOS=ETC&MobileApp=AppTest
+&_type=json&contentId=1095732
+&imageYN=Y
+&subImageYN=Y
+&numOfRows=10
+&pageNo=1
+
+
+※파라미터의조합에따라아래와같이표현이가능합니다. 
+
+- 지역별관광정보 :지역정보(필수) >타입정보(선택) >분류정보(선택) >관광정보목록
+- 타입별관광정보 :타입정보(필수) >지역정보(선택) >분류정보(선택) >관광정보목록
+- 분류별관광정보 :타입정보(필수) >분류정보(선택) >지역정보(선택) >관광정보목록
+
+-통합(키워드) 검색 :지역정보(선택) >타입정보(선택) >분류정보(선택) >검색된정보목록 
+- 내주변관광정보 :타입정보(선택) >관광정보목록 
+- 날짜별행사축제 :지역정보(선택) >행사공연축제목록 
+- 숙박검색 :지역정보(선택) >각숙박정보목록
+
+-----
+
+공통정보/
+소개정보/
+이미지정보/
+
+이미지에 대한 설명이 있는..
+진짜 노가다네....ㅠ.ㅠ
+
+--
+
+II.  인증키활용 및 API호출방법 
+
+- 개발계정은 일 1,000건의트래픽을제공합니다. 
+- 개발계정은 자동승인으로 활용신청후, 약 10분이후에 사용이 가능합니다. ( 공공데이터포털 연동 ) 
+
+1)  REST방식의 URL 요청예시 
+응답표준은XML 이며, JSON을요청할경우“&_type=json”을추가하여요청합니다. 
+
+- Json 요청 : 
+http://apis.data.go.kr/B551011/KorService1/areaCode1?  serviceKey=serviceKey  &numOfRows=10 
+&pageNo=1&MobileOS=ETC&MobileApp=TestApp  &_type=json
+
+ 2015년 1월이후  에공공데이터포털에서받은인증키경우,  인코딩불필요
+
+3)  요청파라미터에 서비스명 기재 
+MobileApp 파라미터는 서비스(웹,앱등) 별로 활용통계를 산출하기 위한 항목입니다.  URL요청시 반드시 기재 부탁드립니다. 
+
+http://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=serviceKey  &numOfRows=10& 
+pageNo=1  &MobileOS=AND&MobileApp=appName 
+
+--
+https://apis.data.go.kr/B551011/KorService1/detailImage1?serviceKey=azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=1095732&imageYN=Y&subImageYN=Y&numOfRows=10&pageNo=1
+
+ 2)  서비스명세 (오퍼레이션목록)
+
+국문관광정보   서비스 
+1  areaCode1  / 지역코드조회 
+2  categoryCode1   /  서비스분류코드조회 
+3  areaBasedList1    /  지역기반관광정보조회 
+4  locationBasedList1    /  위치기반관광정보조회 
+5  searchKeyword1    /  키워드검색조회 
+6  searchFestival1    /  행사정보조회 
+7  searchStay1    /  숙박정보조회 
+8  detailCommon1    /  공통정보조회 (상세정보1) 
+9  detailIntro1    /  소개정보조회 (상세정보2) 
+10  detailInfo1    /  반복정보조회 (상세정보3) 
+11  detailImage1    /  이미지정보조회 (상세정보4) 
+12  areaBasedSyncList1   /   국문관광정보 동기화목록조회 
+
+3)  국문콘텐츠타입(ContentTypeId) 코드표 
+관광지  12  /  
+문화시설  14 
+행사/공연/축제  15 
+여행코스  25 
+레포츠  28 
+숙박  32 
+쇼핑  38 
+음식점  39
+
+4)  공공데이터포털에러코드 
+에러코드  에러메세지  설명 
+01  APPLICATION_ERROR  어플리케이션 에러 
+04  HTTP_ERROR  HTTP 에러 
+12  NO_OPENAPI_SERVICE_ERROR  해당 오픈API서비스가 없거나 폐기됨 
+20  SERVICE_ACCESS_DENIED_ERROR  서비스 접근거부 
+22  LIMITED_NUMBER_OF_SERVICE_REQUESTS_EXCEEDS_ERROR  서비스 요청제한횟수 초과에러 
+30  SERVICE_KEY_IS_NOT_REGISTERED_ERROR  등록되지 않은 서비스키 
+31  DEADLINE_HAS_EXPIRED_ERROR  활용기간 만료 
+32  UNREGISTERED_IP_ERROR  등록되지 않은 IP 
+99  UNKNOWN_ERROR  기타에러
+
+※  공공데이터포털에서출력되는오류메세지는 XML로만출력되며, 형태는아래와같습니다. 
+ <OpenAPI_ServiceResponse> 
+ <cmmMsgHeader> 
+ <errMsg>SERVICE ERROR</errMsg> 
+ <returnAuthMsg>SERVICE_KEY_IS_NOT_REGISTERED_ERROR</returnAuthMsg> 
+ <returnReasonCode>30</returnReasonCode> 
+ </cmmMsgHeader> 
+ </OpenAPI_ServiceResponse>
+
+마) 제공기관에러코드 
+에러코드  에러메세지  설명 
+00  NORMAL_CODE  정상 
+01  APPLICATION_ERROR  어플리케이션 에러 
+02  DB_ERROR  데이터베이스 에러 
+03  NODATA_ERROR  데이터없음 에러 
+04  HTTP_ERROR  HTTP 에러
+
+05  SERVICETIMEOUT_ERROR  / 서비스 연결실패 에러 
+10  INVALID_REQUEST_PARAMETER_ERROR / 잘못된 요청 파라메터 에러 
+11  NO_MANDATORY_REQUEST_PARAMETERS_ERROR  / 필수요청 파라메터가 없음 
+12  NO_OPENAPI_SERVICE_ERROR  / 해당 오픈API서비스가 없거나 폐기됨 
+20  SERVICE_ACCESS_DENIED_ERROR / 서비스 접근거부
+21  TEMPORARILY_DISABLE_THE_SERVICEKEY_ERROR / 일시적으로 사용할 수 없는 서비스 키 
+22  LIMITED_NUMBER_OF_SERVICE_REQUESTS_EXCEEDS_ERROR / 서비스 요청제한횟수 초과에러
+30  SERVICE_KEY_IS_NOT_REGISTERED_ERROR  / 등록되지 않은 서비스키 
+31  DEADLINE_HAS_EXPIRED_ERROR / 활용기간 만료
+32  UNREGISTERED_IP_ERROR / 등록되지 않은 IP 
+33  UNSIGNED_CALL_ERROR  / 서명되지 않은 호출
+99  UNKNOWN_ERROR / 기타에러

@@ -1,0 +1,769 @@
+2025년03월18일
+
+프로젝트 조배정 / 5월9일까지
+나세호 위영진 백승빈 김현기
+4월17일부터 시작
+
+주제는
+번역 api 활용 mvc 기반 다문화가정 문화 컨텐츠 번역 서비스
+쳇봇 api 활용 서비스 mvc 기반 고객관리 시스템
+open api 활용 위치정보 기반 mvc 여행정보 제공 및 커뮤니티
+
+아무것도 쉬운건 없음. 결정되면..따르기로..의견 없음.
+
+--
+
+기능정의서
+
+메인
+회원
+검색창
+마이페이지
+베너
+서비스 목록 기타
+
+커뮤니티
+공지사항
+자유게시판(공연후기등)
+
+관리자 / 페이지
+UML Use case diagram / function tree
+sequence diagram /
+
+--
+
+스프링
+리액트
+크롤링
+장고
+머신러닝
+깃허브...//
+
+....
+
+프로젝트...배운거..로..장고..2번 3번? 
+..
+
+레이아웃...
+웹소켓...
+
+...
+
+팀장은 세호씨
+open api 활용 위치정보 기반 mvc 여행정보 제공 및 커뮤니티
+...
+
+여행정보..
+커뮤니티 ...사이트가 존재해야 하는 이유..
+여행정보..할인정보(특가정보)
+
+국내한정. 여행정보...
+특화서비스
+
+sql light
+oracle database
+mysql
+
+=====
+
+2025년 4월 11일 금요일
+
+빠진다고 이야기 좀 하는게 얼마나 어렵던지..
+팀장인 세호씨가 바닷가 사진이라도 좀 모아달라고 하길래 gpt 에게 물어봤더니
+https://chatgpt.com/share/67f8996e-d1b4-800b-b552-df93f379f7fe
+ChatGPT - 파이썬 이미지 크롤링
+Shared via ChatGPT
+
+chatgpt.com
+
+알려준 사이트
+
+https://unsplash.com/developers
+Unsplash Image API | Free HD Photo API
+
+
+---
+
+안전하게 가야 하는
+
+---
+
+
+Application ID /  736193
+
+Access Key / Ibvsh6VgZj8iyHwag77VN21bvCt92audKaE4bmQJYTM
+
+Secret key / m8FgIcjh7RY1K0nKAZCjJNtvQK-gCC_Rf6ZBLX2gS34
+
+
+
+🔒 Redirect URI & Permissions
+Redirect URI
+(optional for applications that are only using the 'Public' permissions)
+urn:ietf:wg:oauth:2.0:oob
+White-listed addresses to redirect to after authentication success OR failure (e.g. https://mysite.com/callback)
+Use one line per URI
+Use urn:ietf:wg:oauth:2.0:oob for local tests
+urn:ietf:wg:oauth:2.0:oob (Authorize)
+
+
+
+
+그래서 gpt 도움을 받아서 크롤링을 했는데
+
+import os
+import requests
+
+# Unsplash API 정보
+ACCESS_KEY = "Ibvsh6VgZj8iyHwag77VN21bvCt92audKaE4bmQJYTM"  # Unsplash 개발자 페이지에서 발급
+QUERY = "korean beach"  # 검색어 (한국어 '바닷가'도 가능)
+PER_PAGE = 30  # 가져올 이미지 수
+SAVE_DIR = "./../../unsplash_beach"
+
+
+# 저장 폴더 만들기
+os.makedirs(SAVE_DIR, exist_ok=True)
+
+# API 요청
+url = "https://api.unsplash.com/search/photos"
+params = {
+    "query": QUERY,
+    "page": 3,
+    "per_page": PER_PAGE,
+    "client_id": ACCESS_KEY
+}
+
+response = requests.get(url, params=params)
+
+data = response.json()
+
+# 이미지 저장
+for i, result in enumerate(data["results"]):
+    img_url = result["urls"]["regular"]
+    img_data = requests.get(img_url).content
+    with open(os.path.join(SAVE_DIR, f"3{QUERY}{i+1}.jpg"), "wb") as f:
+        f.write(img_data)
+    print(f"{i+1}번 이미지 저장 완료")
+
+
+
+
+그런데...세호씨가 원하는건...이런 사진이 아닌가?
+세호씨가 여행사 사이트 들어가보라고 하길래...들어가 보기로..
+
+일단 생각나는 여행사 하나투어 모두투어..그리고 Yellow? 찾아보니 노랑풍선..^^
+2003년에 파리에서 내 사진 찍어준 순덕언니가...노랑풍선 여행사 이야기를 하던 기억이 나는
+순덕언니가 여행사 직원이었는데..그때 여행사 사람들 사이에서 화제가 되고 있던 여행사라서 기억이 나는 ^^
+하여간..일단..그 3곳이랑..온라인투어? 페이지에서 추천하는 사람 있긴 하던데.. 하여간..
+사진 저장하면서 어디에서 가져왔는지 폴더별로 저장해놓으면 되겠음
+
+
+
+국내 탑 여행사로 검색하니까...
+
+1. 하나투어
+2. 모두투어
+3. 노랑풍선
+4. 인터파크투어
+5. 마이리얼트립
+6. 롯데관광
+
+온라인투어
+트립스토어
+TS투어
+백두산관광여행사
+투어핏여행사
+아워홀리데이여행사
+
+참좋은여행
+굿모닝여행사
+여행이지
+여행박사
+
+
+대충 이런데...
+
+매출액 순위로 검색 하니까.
+
+
+목차
+국내 여행사 순위
+1. 하나투어
+2. 인터파크투어
+3. 모두투어
+4. 레드캡투어
+5. 참좋은여행
+관련 포스팅
+요약
+
+이런 결과가 나오는...허얼..
+레드캡 투어...있었지..
+참좋은 여행이...5위 안에 드는구나..몰랐음
+
+아니..사진을 써도...그나마 상태가 좋은 곳 사진을 쓰는게 나을 거 갔아서..
+어디서 가져왔는지 메모 해 놓으면..나중일도 감당이 가능하고
+
+1. 하나투어
+2. 모두투어
+3. 노랑풍선
+4. 인터파크투어
+5. 레드캡투어
+6. 참좋은여행
+7. 마이리얼트립
+8. 롯데관광
+
+
+온라인투어
+트립스토어
+TS투어
+백두산관광여행사
+투어핏여행사
+아워홀리데이여행사
+
+참좋은여행
+굿모닝여행사
+여행이지
+여행박사
+
+엄청 많구만...이중에...8까지만 하면 안될까?
+일단..일이 많으니까...8개 여행사만...//매출액이 있어야..홈페이지도 신경을 쓸거 아니겠나 싶어서 일단
+사이트 선정 끝
+
+1. 하나투어
+https://www.hanatour.com/
+썸네일
+하나투어 : 꿈꾸는 대로, 펼쳐지다
+1등 여행사 하나투어! 전세계 패키지 여행, 항공권, 호텔, 자유여행 등 실시간 예약
+
+www.hanatour.com
+
+
+2. 모두투어
+https://www.modetour.com/
+썸네일
+여행은 모두투어
+여행은 모두투어! 모두투어는 해외여행, 국내여행, 패키지여행, 에어텔, 항공권, 호텔 등 각종 여행정보를 제공하는 국내 최대 여행포탈사이트 입니다.
+
+www.modetour.com
+
+
+3. 노랑풍선
+https://www.ybtour.co.kr/
+썸네일
+여행을 가볍게! 노랑풍선
+해외패키지, 자유여행, 허니문, 국내여행, 항공권, 실시간 예약 등 각종 여행 정보를 제공하는 직판여행 NO.1
+
+www.ybtour.co.kr
+
+
+4. 인터파크투어
+https://mtravel.interpark.com/home
+썸네일
+인터파크 투어
+동남아 봄맞이 무적할인 즉시프로모션
+
+mtravel.interpark.com
+
+
+5. 레드캡투어
+https://www.redcap.co.kr/
+썸네일
+레드캡 기업/기관 전문 '출장여행, 렌터카, MICE'
+'기업/기관 전문 '해외출장, 기업여행, MICE 및 장기 렌터카' - 믿을 수 있는 코스닥 상장사 레드캡
+
+www.redcap.co.kr
+
+
+6. 참좋은여행
+https://www.verygoodtour.com/
+썸네일
+참좋은여행
+고객의 만족을 최우선으로 생각하는 해외/국내여행 전문기업.
+
+www.verygoodtour.com
+
+
+7. 마이리얼트립
+https://www.myrealtrip.com/
+썸네일
+진짜 나다운 여행 - 마이리얼트립
+항공, 숙소, 교통, 투어와 액티비티까지! 마이리얼트립에서 나다운 진짜 여행을 떠나보세요.
+
+www.myrealtrip.com
+
+
+8. 롯데관광
+https://www.lottetour.com/welcome
+썸네일
+믿고가는 여행, 롯데관광
+믿고가는 여행, 롯데관광과 함께하시면 기분좋은 여행이 시작됩니다!
+
+www.lottetour.com
+일단 사이트 별로 국내 바다?
+어디 있는지 보기
+
+---
+
+그러다 생각난
+한국관광공사_API 서비스
+
+https://www.data.go.kr/data/15101578/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/detailImage1
+썸네일
+한국관광공사_국문 관광정보 서비스_GW
+코드조회 및 관광정보의 통합/상세검색 등의 기능을 제공하며 위치기반, 지역기반 국내 관광에 대한 전반적인 정보를 국문으로 제공합니다.
+
+www.data.go.kr
+
+
+활용신청 해 보아야 하겠음
+이미지 비교도 할겸..
+하여간..일이 많구만...ㅠ.ㅠ
+------
+
+
+
+
+
+----
+
+일단 정부 공공데이터 포털 가입했고..
+https://www.data.go.kr/index.do
+썸네일
+공공데이터 포털
+국가에서 보유하고 있는 다양한 데이터를『공공데이터의 제공 및 이용 활성화에 관한 법률(제11956호)』에 따라 개방하여 국민들이 보다 쉽고 용이하게 공유•활용할 수 있도록 공공데이터(Dataset)와 Open API로 제공하는 사이트입니다.
+
+www.data.go.kr
+
+-----
+
+
+오픈API
+XML JSON 한국관광공사_국문 관광정보 서비스_GW
+
+https://www.data.go.kr/data/15101578/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/detailImage1
+썸네일
+한국관광공사_국문 관광정보 서비스_GW
+코드조회 및 관광정보의 통합/상세검색 등의 기능을 제공하며 위치기반, 지역기반 국내 관광에 대한 전반적인 정보를 국문으로 제공합니다.
+
+www.data.go.kr
+
+----
+
+API 활용 신청 / 승인
+
+
+
+
+
+
+
+pdf 가 아닌 오피스 문서로 올려놓는 이 무식함 어쩔
+-----
+
+크롬으로 갔음
+
+
+1. 하나투어
+https://www.hanatour.com/
+
+2. 모두투어
+https://www.modetour.com/
+
+3. 노랑풍선
+https://www.ybtour.co.kr/
+
+4. 인터파크투어
+https://mtravel.interpark.com/home
+
+5. 레드캡투어
+https://www.redcap.co.kr/
+
+6. 참좋은여행
+https://www.verygoodtour.com/
+
+7. 마이리얼트립
+https://www.myrealtrip.com/
+
+8. 롯데관광
+https://www.lottetour.com/welcome
+
+------
+
+일단 사이트 별로 국내 바다? 
+어디 있는지 보기
+
+---
+
+그러다 생각난
+한국관광공사_API 서비스
+
+https://www.data.go.kr/data/15101578/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/detailImage1
+
+활용신청 해 보아야 하겠음
+이미지 비교도 할겸..
+하여간..일이 많구만...ㅠ.ㅠ
+------
+
+일단 정부 공공데이터 포털 가입했고..
+https://www.data.go.kr/index.do
+
+-----
+오픈API
+XML JSON 한국관광공사_국문 관광정보 서비스_GW
+
+https://www.data.go.kr/data/15101578/openapi.do#/API%20%EB%AA%A9%EB%A1%9D/detailImage1
+
+--
+
+하고싶었던 건 아니고..의무라서 시작한건데
+의외로 재미있어서 다행임
+---
+
+pdf 가 아닌 오피스 문서로 올려놓는 이 무식함 어쩔
+
+-----
+
+인증키 발급현황
+일반	2025/04/11	신규발급	
+azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D
+
+데이터포맷	JSON+XML
+End Point	http://apis.data.go.kr/B551011/KorService1
+
+요청변수(Request Parameter) 필수(1), 옵션(0) 
+numOfRows / 한페이지결과수  / 옵션(0) 
+샘플데이터 / 10
+
+pageNo / 페이지번호 / 옵션(0) 
+샘플데이터 / 1
+
+MobileOS	/ OS 구분 / 필수(1)
+샘플데이터 / ETC
+IOS (아이폰), AND (안드로이드), WIN (윈도우폰), ETC(기타)
+
+MobileApp / 서비스명(어플명) / 필수(1)
+샘플데이터 / AppTest )
+
+serviceKey	/ 공공데이터포털에서 발급받은 인증키(서비스키) /
+샘플데이터 / 인증키 / 필수(1)
+
+_type / 응답메세지 형식 / 옵션(0) 
+샘플데이터 / json
+REST방식의 URL호출 시 json값 추가(디폴트 응답메세지 형식은XML)
+
+contentId	/ 콘텐츠ID / 필수(1)
+샘플데이터 / 1095732
+
+imageYN / 이미지조회1 / 옵션(0) 
+샘플데이터 / Y
+Y=콘텐츠이미지조회 N=”음식점”타입의음식메뉴이미지
+
+subImageYN /  이미지조회 2 / 옵션(0) 
+샘플데이터 / Y
+Y=원본,썸네일이미지조회,공공누리 저작권유형정보조회 N=Null
+
+--
+
+응답메시지 (Response Message) 
+
+항목명  항목설명  항목크기  항목구분  샘플데이터  상세내용 
+resultCode  결과코드  4  1  0  응답결과코드 
+resultMsg  결과메시지  4  1  OK  응답결과메시지 
+numOfRows  한페이지결과수  4  1  10  한페이지결과수 
+pageNo  페이지번호  4  1  1  현재페이지번호 
+totalCount  전체결과수  5  1  4  전체결과수 
+contentid  콘텐츠ID  12  1  1095732  콘텐츠ID 
+imgname  이미지명  1000  0  이미지명 
+originimgurl  원본이미지  100  0 
+http://tong.visitkorea.or.kr/cms/resource/32/2680832_image2_1.jpg  /원본이미지/  (약 500*333 size) 
+
+Type1:제1유형(출처표시-권장
+Type3:제3유형(제1유형+변경금지)
+
+serialnum  이미지일련번호  12  0  
+샘플데이터 / 2680832_11
+
+cpyrhtDivCd  저작권 유형  10  0
+샘플데이터 /  Type1 
+
+smallimageurl  썸네일이미지(약 160*100 size)/  100  0 / 
+샘플데이터 /  http://tong.visitkorea.or.kr/cms/resource/32/2680832_image2_1.jpg
+
+
+샘플
+https://apis.data.go.kr/B551011/KorService1/detailImage1?serviceKey=azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=1095732&imageYN=Y&subImageYN=Y&numOfRows=10&pageNo=1
+
+https://apis.data.go.kr/B551011/KorService1/detailImage1?
+
+serviceKey=azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D
+
+&MobileOS=ETC&MobileApp=AppTest
+&_type=json&contentId=1095732
+&imageYN=Y
+&subImageYN=Y
+&numOfRows=10
+&pageNo=1
+
+
+※파라미터의조합에따라아래와같이표현이가능합니다. 
+
+- 지역별관광정보 :지역정보(필수) >타입정보(선택) >분류정보(선택) >관광정보목록
+- 타입별관광정보 :타입정보(필수) >지역정보(선택) >분류정보(선택) >관광정보목록
+- 분류별관광정보 :타입정보(필수) >분류정보(선택) >지역정보(선택) >관광정보목록
+
+-통합(키워드) 검색 :지역정보(선택) >타입정보(선택) >분류정보(선택) >검색된정보목록 
+- 내주변관광정보 :타입정보(선택) >관광정보목록 
+- 날짜별행사축제 :지역정보(선택) >행사공연축제목록 
+- 숙박검색 :지역정보(선택) >각숙박정보목록
+
+-----
+
+공통정보/
+소개정보/
+이미지정보/
+
+이미지에 대한 설명이 있는..
+진짜 노가다네....ㅠ.ㅠ
+
+--
+
+II.  인증키활용 및 API호출방법 
+
+- 개발계정은 일 1,000건의트래픽을제공합니다. 
+- 개발계정은 자동승인으로 활용신청후, 약 10분이후에 사용이 가능합니다. ( 공공데이터포털 연동 ) 
+
+1)  REST방식의 URL 요청예시 
+응답표준은XML 이며, JSON을요청할경우“&_type=json”을추가하여요청합니다. 
+
+- Json 요청 : 
+http://apis.data.go.kr/B551011/KorService1/areaCode1?  serviceKey=serviceKey  &numOfRows=10 
+&pageNo=1&MobileOS=ETC&MobileApp=TestApp  &_type=json
+
+ 2015년 1월이후  에공공데이터포털에서받은인증키경우,  인코딩불필요
+
+3)  요청파라미터에 서비스명 기재 
+MobileApp 파라미터는 서비스(웹,앱등) 별로 활용통계를 산출하기 위한 항목입니다.  URL요청시 반드시 기재 부탁드립니다. 
+
+http://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=serviceKey  &numOfRows=10& 
+pageNo=1  &MobileOS=AND&MobileApp=appName 
+
+--
+https://apis.data.go.kr/B551011/KorService1/detailImage1?serviceKey=azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=1095732&imageYN=Y&subImageYN=Y&numOfRows=10&pageNo=1
+
+ 2)  서비스명세 (오퍼레이션목록)
+
+국문관광정보   서비스 
+1  areaCode1  / 지역코드조회 
+2  categoryCode1   /  서비스분류코드조회 
+3  areaBasedList1    /  지역기반관광정보조회 
+4  locationBasedList1    /  위치기반관광정보조회 
+5  searchKeyword1    /  키워드검색조회 
+6  searchFestival1    /  행사정보조회 
+7  searchStay1    /  숙박정보조회 
+8  detailCommon1    /  공통정보조회 (상세정보1) 
+9  detailIntro1    /  소개정보조회 (상세정보2) 
+10  detailInfo1    /  반복정보조회 (상세정보3) 
+
+11  detailImage1    /  이미지정보조회 (상세정보4) 
+
+12  areaBasedSyncList1   /   국문관광정보 동기화목록조회 
+
+3)  국문콘텐츠타입(ContentTypeId) 코드표 
+관광지  12  /  
+문화시설  14 
+행사/공연/축제  15 
+여행코스  25 
+레포츠  28 
+숙박  32 
+쇼핑  38 
+음식점  39
+
+4)  공공데이터포털에러코드 
+에러코드  에러메세지  설명 
+01  APPLICATION_ERROR  어플리케이션 에러 
+04  HTTP_ERROR  HTTP 에러 
+12  NO_OPENAPI_SERVICE_ERROR  해당 오픈API서비스가 없거나 폐기됨 
+20  SERVICE_ACCESS_DENIED_ERROR  서비스 접근거부 
+22  LIMITED_NUMBER_OF_SERVICE_REQUESTS_EXCEEDS_ERROR  서비스 요청제한횟수 초과에러 
+30  SERVICE_KEY_IS_NOT_REGISTERED_ERROR  등록되지 않은 서비스키 
+31  DEADLINE_HAS_EXPIRED_ERROR  활용기간 만료 
+32  UNREGISTERED_IP_ERROR  등록되지 않은 IP 
+99  UNKNOWN_ERROR  기타에러
+
+※  공공데이터포털에서출력되는오류메세지는 XML로만출력되며, 형태는아래와같습니다. 
+ <OpenAPI_ServiceResponse> 
+ <cmmMsgHeader> 
+ <errMsg>SERVICE ERROR</errMsg> 
+ <returnAuthMsg>SERVICE_KEY_IS_NOT_REGISTERED_ERROR</returnAuthMsg> 
+ <returnReasonCode>30</returnReasonCode> 
+ </cmmMsgHeader> 
+ </OpenAPI_ServiceResponse>
+
+마) 제공기관에러코드 
+에러코드  에러메세지  설명 
+00  NORMAL_CODE  정상 
+01  APPLICATION_ERROR  어플리케이션 에러 
+02  DB_ERROR  데이터베이스 에러 
+03  NODATA_ERROR  데이터없음 에러 
+04  HTTP_ERROR  HTTP 에러
+
+05  SERVICETIMEOUT_ERROR  / 서비스 연결실패 에러 
+10  INVALID_REQUEST_PARAMETER_ERROR / 잘못된 요청 파라메터 에러 
+11  NO_MANDATORY_REQUEST_PARAMETERS_ERROR  / 필수요청 파라메터가 없음 
+12  NO_OPENAPI_SERVICE_ERROR  / 해당 오픈API서비스가 없거나 폐기됨 
+20  SERVICE_ACCESS_DENIED_ERROR / 서비스 접근거부
+21  TEMPORARILY_DISABLE_THE_SERVICEKEY_ERROR / 일시적으로 사용할 수 없는 서비스 키 
+22  LIMITED_NUMBER_OF_SERVICE_REQUESTS_EXCEEDS_ERROR / 서비스 요청제한횟수 초과에러
+30  SERVICE_KEY_IS_NOT_REGISTERED_ERROR  / 등록되지 않은 서비스키 
+31  DEADLINE_HAS_EXPIRED_ERROR / 활용기간 만료
+32  UNREGISTERED_IP_ERROR / 등록되지 않은 IP 
+33  UNSIGNED_CALL_ERROR  / 서명되지 않은 호출
+99  UNKNOWN_ERROR / 기타에러
+
+====
+
+타입별관광정보 :
+타입정보(필수) >
+지역정보(선택) >
+분류정보(선택) >
+관광정보목록
+======
+
+20250414 월요일
+
+아침부터..계속 한국 관광공사 OpenAPI 사이트 에서 크롤링을 시도중인데
+계속 에러가 나고 있음....ㅠ.ㅠ...요청 request 에 따른 response 를 제대로 정해주어야 하는 것 같은데..
+계속 헤메이고 있는 중...ㅠ.ㅠ
+
+contentId=1095732
+def imageExtractor(contentId, pageNumber=1, pageSize=10):
+end_point = 'http://apis.data.go.kr/B551011/KorService1/detailImage1'
+
+getImage_govUrl.py = 이미지 url
+C:\Python311\python.exe D:\TeamProject\getImage_govUrl.py
+[1] http://tong.visitkorea.or.kr/cms/resource/68/3035568_image2_1.jpg
+[2] http://tong.visitkorea.or.kr/cms/resource/69/3035569_image2_1.jpg
+[3] http://tong.visitkorea.or.kr/cms/resource/81/3037181_image2_1.png
+[4] http://tong.visitkorea.or.kr/cms/resource/82/3037182_image2_1.png
+[5] http://tong.visitkorea.or.kr/cms/resource/83/3037183_image2_1.png
+[6] http://tong.visitkorea.or.kr/cms/resource/84/3037184_image2_1.png
+[7] http://tong.visitkorea.or.kr/cms/resource/86/3037186_image2_1.png
+[8] http://tong.visitkorea.or.kr/cms/resource/88/3037188_image2_1.png
+[9] http://tong.visitkorea.or.kr/cms/resource/39/3468239_image2_1.png
+[10] http://tong.visitkorea.or.kr/cms/resource/87/3037187_image2_1.png
+Process finished with exit code 0
+
+getImage_govSave.py =  이미지 저장
+C:\Python311\python.exe D:\TeamProject\getImage_govSave.py
+이미지 저장 완료: ./images/3035568_image2_1.jpg
+이미지 저장 완료: ./images/3035569_image2_1.jpg
+이미지 저장 완료: ./images/3037181_image2_1.png
+이미지 저장 완료: ./images/3037182_image2_1.png
+이미지 저장 완료: ./images/3037183_image2_1.png
+이미지 저장 완료: ./images/3037184_image2_1.png
+이미지 저장 완료: ./images/3037186_image2_1.png
+이미지 저장 완료: ./images/3037188_image2_1.png
+이미지 저장 완료: ./images/3468239_image2_1.png
+이미지 저장 완료: ./images/3037187_image2_1.png
+Process finished with exit code 0
+
+getImage_govList.py = 이미지 정보 csv 저장(정보 없음)
+imgName,imgUrl,cpyrhtDivCd,galContentId,galTitle,galPhotographyMonth,galPhotographyLocation,galPhotographer,galSearchKeyword
+,,,,,,,,
+
+
+관광공사 오퍼레이션 명세
+1  areaCode1  / 지역코드조회
+2  categoryCode1   /  서비스분류코드조회
+3  areaBasedList1    /  지역기반관광정보조회
+4  locationBasedList1    /  위치기반관광정보조회
+5  searchKeyword1    /  키워드검색조회
+6  searchFestival1    /  행사정보조회
+7  searchStay1    /  숙박정보조회
+8  detailCommon1    /  공통정보조회 (상세정보1)
+9  detailIntro1    /  소개정보조회 (상세정보2)
+10  detailInfo1    /  반복정보조회 (상세정보3)
+11  detailImage1    /  이미지정보조회 (상세정보4)
+12  areaBasedSyncList1   /   국문관광정보 동기화목록조회
+
+contentTypeId={contentTypeId}
+관광지  12
+문화시설  14
+행사/공연/축제  15
+여행코스  25
+레포츠  28
+숙박  32
+쇼핑  38
+음식점  39
+
+예시)
+지역이 서울(areaCode=1)인  시군구코드  정보를 조회
+ http://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=인증키&  areaCode=1  &numOfRows=10&pageNo
+ =1&MobileOS=ETC&MobileApp=AppTest
+
+===
+관광공사_OpenAPI_관광사진갤러리_키워드.txt
+1 galleryList1  관광사진갤러리 목록 조회
+2 gallerySearchList1  관광사진갤러리 키워드검색 목록 조회
+3 galleryDetailList1  관광사진갤러리 상세 목록 조회
+4 gallerySyncDetailList1  관광사진정보 동기화 조회
+
+
+2 gallerySearchList1  관광사진갤러리 키워드검색 목록 조회
+
+end_point = 'http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1 '
+
+Request Parameter
+f'?serviceKey={service_key}'
+f'&numOfRows={Size}'
+f'&pageNo={No}'
+f'&MobileOS=ETC'
+f'&MobileApp=AppTest'
+f'&_type=json'
+f'&arrange=B'
+f'&keyword={serch}'
+
+Response Message
+resultCode
+resultMsg
+numOfRows
+pageNo
+totalCount
+galContentId
+galContentTypeId
+galTitle
+galWebImageUrl
+galCreatedtime
+galModifiedtime
+galPhotographyMont
+galPhotographyLocation
+galPhotographer
+galSearchKeyword
+==
+
+D:\
+TeamProject
+
+getList_galleryList.py
+getList_categoryCode.py
+getList_areaCode.py
+getImage_unsplash.py
+getImage_govUrl.py
+getImage_govList.py
+getImage_fromList.py
+
+images>>
+Test>>
+unsplash_beach>>
+==
+
+
+
+
+
+
+
+
+
+
+
