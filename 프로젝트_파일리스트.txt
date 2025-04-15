@@ -1,26 +1,40 @@
 D:\
 TeamProject
 
-getImage_fromList.py / 
-save Image from csv
-getImage_govSave.py / imageExtractor(contentId=1095732) 디테일 이미지 저장
-getImage_govUrl.py / imageExtractor(contentId=1095732) 디테일 이미지 url 출력
-getImage_unsplash.py / unsplash 사이트 이미지 저장
+getImage_fromList.py / save Image from csv / dilimiter ','
+getImage_fromList_dilimiterT.py / save Image from csv / dilimiter '\t'
 
-getList_areaCode.py / areacode1 / 1. 강남구 2,강동구...../getlist_areaCode.csv/ 
-getList_categoryCode.py / contentTypeId = 14 /getlist_category.csv
 
 getList_galleryList.py /galleryList1 /getlist_galleryList.csv
 제목,이미지URL,촬영장소,사진작가,검색키워드,콘텐츠ID,콘텐츠타입ID,등록일시,수정일시
 가덕도 연대봉,http://tong.visitkorea.or.kr/cms2/website/27/2925827.jpg,부산광역시 강서구 천성동,부산관광공사,"가덕도 연대봉, 부산광역시 강서구, 부산관광공.....
 
-
 Test>>
-dotenv.env
+getImage_govSave.py / imageExtractor(contentId=1095732) 디테일 이미지 저장
+getImage_govUrl.py / imageExtractor(contentId=1095732) 디테일 이미지 url 출력
+getImage_unsplash.py / unsplash 사이트 이미지 저장
+getList_areaCode.py / areacode1 / 1. 강남구 2,강동구...../getlist_areaCode.csv/ 
+getList_categoryCode.py / contentTypeId = 14 /getlist_category.csv
 getList_galleryListTest.py
-main.py
 saveImage.py
+dotenv.env
+main.py
 utils.py
 
-images>>
-unsplash_beach>>
+images>> 53개  이미지 파일
+unsplash_beach>>140개 이미지 파일
+=======
+
+getList_searchList.py / 검색어로 이미지 찾아서 리스트로 저장
+getlist_searchList01.csv(수상레저), 더베이 이외 55개
+getlist_searchList02.csv(수상레포츠), 다대포 해수욕장 외6개
+getlist_searchList02.csv(해양레포츠), 광안리해수욕장 외 21개
+
+getImage_fromList.py / csv 에 저장된 리스트에서 이미지 저장
+getImage_fromList_dilimiterT.py / csv 리스트에서 이미지 저장 / tab 구분(dilimiter)
+
+getImage_fromList_append.py/ csv 리스트에서 이미지와 성공,실패 리스트 저장
+getlist_searchList01.csv 02, 03 에서 이미지 저장 성공 52개
+success_log.csv에 성공 리스트 저장됨
+failed_requests.csv 에 실패 리스트 저장됨
+

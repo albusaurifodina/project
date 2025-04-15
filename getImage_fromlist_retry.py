@@ -4,9 +4,6 @@ from PIL import Image
 from io import BytesIO
 import os
 
-success_log = 'list/success_log.csv'
-success_writer = open(success_log, 'a', newline='', encoding='utf-8')
-retry_success_csv = csv.writer(success_writer)
 
 def download_image(title, url, count):
     try:
@@ -17,7 +14,6 @@ def download_image(title, url, count):
         filename = f'images/{title}_{count}.{ext}'
         img.save(filename)
         print(f"재시도 저장 완료: {filename}")
-        retry_success_csv.writerow([title, url])  # 성공한 경우 기록
         return True
 
     except Exception as e:
