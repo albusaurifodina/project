@@ -4,6 +4,12 @@ import urllib.request
 import urllib.parse
 import pandas as pd  # pandas 모듈
 
+import urllib.parse
+import requests
+
+keyword = '윈드서핑'
+encoded_keyword = urllib.parse.quote(keyword)
+
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
 pageNumber = 1
@@ -20,9 +26,10 @@ def getDataFromWeb(url):
         print('크롤링 실패:', err)
         return None
 
+
 # 이미지 리스트와 정보 추출 함수
-def listExtractor(pageNumber=1, pageSize=10):
-    end_point = 'http://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1'
+def listExtractor(pageNumber, pageSize):
+    end_point = 'http://apis.data.go.kr/B551011/KorService/searchKeyword1'
 
     params = (
         f'?serviceKey={service_key}'
@@ -31,7 +38,8 @@ def listExtractor(pageNumber=1, pageSize=10):
         f'&MobileOS=ETC'
         f'&MobileApp=AppTest'
         f'&_type=json'
-        f'&arrange=B'
+        f'&arrange=A'
+        f'&keyword={encoded_keyword}'
     )
 
     url = end_point + params
@@ -47,7 +55,7 @@ def listExtractor(pageNumber=1, pageSize=10):
             if isinstance(items, dict):  # 단일 객체일 경우 리스트로 변환
                 items = [items]
             for item in items:
-                img_url = item.get('originimgurl')
+                img_url = item.get('galWebImageUrl')
                 img_name = item.get('imgname', '정보없음')
                 cpyrht = item.get('cpyrhtDivCd', '알 수 없음')
             return data  # 전체 JSON 응답 반환
@@ -74,12 +82,12 @@ def makeListTable(listData):
             "제목": onedict.get("galTitle", ""),
             "이미지URL": onedict.get("galWebImageUrl", ""),
             "촬영장소": onedict.get("galPhotographyLocation", ""),
-            "사진작가": onedict.get("galPhotographer", ""),
             "검색키워드": onedict.get("galSearchKeyword", ""),
             "콘텐츠ID": onedict.get("galContentId", ""),
             "콘텐츠타입ID": onedict.get("galContentTypeId", ""),
             "등록일시": onedict.get("galCreatedtime", ""),
-            "수정일시": onedict.get("galModifiedtime", "")
+            "수정일시": onedict.get("galModifiedtime", ""),
+            "사진작가": onedict.get("galPhotographer", ""),
         }
         row = pd.DataFrame(onedict, index=[0])
         listTable = pd.concat([listTable, row], ignore_index=True)
@@ -94,7 +102,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = './../list/getlist_galleryList.csv'
+    filename = f'list/searchlist_kor1_{keyword}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:

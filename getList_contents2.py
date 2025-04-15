@@ -1,10 +1,9 @@
-import urllib.parse
 import requests
 import csv
 import time
 import os
 
-
+# 키워드 리스트
 keyword_list = [
     "바나나보트", "땅콩보트", "빅마블", "보트투어", "플라이피쉬", "워터슬라이드",
     "수상튜브", "아쿠아보트", "워터바이크", "패들보트", "카약", "수상 트램펄린",
@@ -12,9 +11,10 @@ keyword_list = [
     "웨이크서핑", "제트스키", "스킨스쿠버", "스노클링", "요트", "SUP", "플라이보드"
 ]
 
+API_KEY = "azksr7Fgk8fnWawWSRq/Rzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J+YdJm4QcpiSAGRw=="
 ENDPOINT = "http://apis.data.go.kr/B551011/KorService/searchKeyword1"
 
-# 결과 저장 경로
+# 결과 저장 폴더 생성
 os.makedirs('list', exist_ok=True)
 output_file = 'list/content_ids.csv'
 
@@ -26,22 +26,21 @@ with open(output_file, mode='w', newline='', encoding='utf-8') as f:
         page = 1
         while True:
             params = {
-                'serviceKey': 'azksr7Fgk8fnWawWSRq/Rzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J+YdJm4QcpiSAGRw==',
+                'serviceKey': API_KEY,
                 'MobileOS': 'ETC',
                 'MobileApp': 'AppTest',
                 'arrange': 'A',
-                'numOfRows': 10,
+                'numOfRows': 100,
                 'pageNo': page,
                 'keyword': keyword,
                 '_type': 'json',
                 'listYN': 'Y'
             }
 
-            url = ENDPOINT + 'params'
-            response = requests.get(url)
+            response = requests.get(ENDPOINT, params=params)
             if response.status_code != 200:
                 print(f"[{keyword}] 요청 실패: {response.status_code}")
-                print(response.text)  # 추가 응답메세지 확인
+                print(response.text)
                 break
 
             items = response.json().get('response', {}).get('body', {}).get('items', {}).get('item', [])
