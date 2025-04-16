@@ -80,9 +80,10 @@ def makeListTable(listData):
     for onedict in items:
         onedict = {
             "제목": onedict.get("galTitle", ""),
+            "검색키워드": onedict.get("galSearchKeyword", ""),
             "이미지URL": onedict.get("galWebImageUrl", ""),
             "촬영장소": onedict.get("galPhotographyLocation", ""),
-            "검색키워드": onedict.get("galSearchKeyword", ""),
+            "촬영월": onedict.get("galPhotographyMont", ""),
             "콘텐츠ID": onedict.get("galContentId", ""),
             "콘텐츠타입ID": onedict.get("galContentTypeId", ""),
             "등록일시": onedict.get("galCreatedtime", ""),

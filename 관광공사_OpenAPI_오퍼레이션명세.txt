@@ -1,7 +1,58 @@
 관광공사_OpenAPI_오퍼레이션명세.txt
 
-2)  서비스명세 (오퍼레이션목록)
-국문관광정보   서비스 
+국문관광정보 TourAPI4.0
+1  areaCode1  / 지역코드조회
+http://apis.data.go.kr/B551011/KorService1/areaCode1
+
+2  categoryCode1   /  서비스분류코드조회 
+http://apis.data.go.kr/B551011/KorService1/categoryCode1
+
+3  areaBasedList1    /  지역기반관광정보조회 
+
+4  locationBasedList1    /  위치기반관광정보조회 
+
+5  searchKeyword1    /  키워드검색조회
+http://apis.data.go.kr/B551011/KorService1/searchKeyword1
+
+6  searchFestival1    /  행사정보조회 
+
+7  searchStay1    /  숙박정보조회 
+
+8  detailCommon1    /  공통정보조회 (상세정보1) 
+
+9  detailIntro1    /  소개정보조회 (상세정보2) 
+
+10  detailInfo1    /  반복정보조회 (상세정보3) 
+
+11  detailImage1    /  이미지정보조회 (상세정보4)
+http://apis.data.go.kr/B551011/KorService1/detailImage1
+
+12  areaBasedSyncList1   /   국문관광정보 동기화목록조회
+
+
+관광사진갤러리
+1 galleryList1  갤러리 목록 조회 
+http://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1
+
+2 gallerySearchList1  갤러리 키워드검색 목록 조회 
+http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1
+
+3 galleryDetailList1  갤러리 상세 목록 조회
+http://apis.data.go.kr/B551011/PhotoGalleryService1/galleryDetailList1
+
+4 gallerySyncDetailList1  관광사진정보 동기화 조회 
+
+==========================================
+국문콘텐츠타입(ContentTypeId) 코드표 
+관광지  12  /  
+문화시설  14 
+행사/공연/축제  15 
+여행코스  25 
+레포츠  28 
+숙박  32 
+쇼핑  38 
+음식점  39
+
 1  areaCode1  / 지역코드조회 
 2  categoryCode1   /  서비스분류코드조회 
 3  areaBasedList1    /  지역기반관광정보조회 
@@ -13,17 +64,7 @@
 9  detailIntro1    /  소개정보조회 (상세정보2) 
 10  detailInfo1    /  반복정보조회 (상세정보3) 
 11  detailImage1    /  이미지정보조회 (상세정보4) 
-12  areaBasedSyncList1   /   국문관광정보 동기화목록조회 
-
-3)  국문콘텐츠타입(ContentTypeId) 코드표 
-관광지  12  /  
-문화시설  14 
-행사/공연/축제  15 
-여행코스  25 
-레포츠  28 
-숙박  32 
-쇼핑  38 
-음식점  39
+12  areaBasedSyncList1   /   국문관광정보 동기화목록조회
 
 4)  공공데이터포털에러코드 
 에러코드  에러메세지  설명 
