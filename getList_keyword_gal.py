@@ -19,7 +19,7 @@ encoded_keyword = urllib.parse.quote(keyword)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
-pageNumber = 3
+pageNumber = 1
 pageSize = 100
 
 # 웹페이지에서 데이터를 가져오는 함수
@@ -110,7 +110,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = f'list/searchlist1_{keyword}_{pageNumber}.csv'
+    filename = f'list/getList_{keyword}_galS{pageNumber}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:

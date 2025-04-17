@@ -1,5 +1,7 @@
 import csv
 import os
+import urllib.request
+import urllib.parse
 import requests
 from PIL import Image
 from io import BytesIO
@@ -7,10 +9,11 @@ from io import BytesIO
 save_folder = "images"
 os.makedirs(save_folder, exist_ok=True)
 
-searchword = '윈드서핑'
-csv_file = 'list/searchlist1_Detail_윈드서핑.csv'
-success_log = 'list/success_log.csv'
-fail_log = 'list/failed_requests.csv'
+searchword = '물놀이'
+encoded_searchword = urllib.parse.quote(searchword)
+csv_file = 'list/list_물놀이_galS1.csv'
+success_log = f'list/etc/success_gal{searchword}S.csv'
+fail_log = f'list/etc/failed_gal{searchword}S.csv'
 
 # 이미 저장된 이미지 URL 읽기 (중복 방지용)
 existing_urls = set()
@@ -34,7 +37,7 @@ with open(csv_file, 'r', encoding='utf-8') as f:
 
         try:
             title = row[0]
-            img_url = row[1]
+            img_url = row[2]
 
             if img_url in existing_urls:
                 print(f"[{idx}] 중복 URL → 건너뜀: {img_url}")
@@ -53,7 +56,7 @@ with open(csv_file, 'r', encoding='utf-8') as f:
 
             image = Image.open(BytesIO(response.content))
             safe_title = title.replace(" ", "_")
-            filename = f"{safe_title}_{searchword}_{idx}.jpg"
+            filename = f"{safe_title}_{searchword}_galS{idx}.jpg"
             filepath = os.path.join(save_folder, filename)
             image.save(filepath)
 

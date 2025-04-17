@@ -5,11 +5,11 @@ from PIL import Image
 from io import BytesIO
 
 # 저장할 폴더 생성
-save_folder = 'images/thumbimages'
+save_folder = 'images/'
 os.makedirs(save_folder, exist_ok=True)
 
 # CSV 파일에서 이미지 URL 읽기
-csv_file = 'list/getList_윈드서핑_korSearch1.csv'  # 결과 CSV 경로
+csv_file = 'list/'  # 결과 CSV 경로
 with open(csv_file, 'r', encoding='utf-8') as f:
     reader = csv.reader(f, delimiter=',')  # 혹은 ',' 사용 (CSV 구조에 따라)
 

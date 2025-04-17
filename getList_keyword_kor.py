@@ -20,7 +20,7 @@ cat3  소분류
 contentid  콘텐츠ID
 '''
 
-keyword = '윈드서핑'
+keyword = '보트'
 encoded_keyword = urllib.parse.quote(keyword)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
@@ -102,7 +102,8 @@ def makeListTable(listData):
             "상세주소": onedict.get("addr2", ""),
             "대분류": onedict.get("cat1", ""),
             "중분류": onedict.get("cat2", ""),
-            "소분류": onedict.get("cat3", ""),            "저작권유형": onedict.get("cpyrhtDivCd", ""),
+            "소분류": onedict.get("cat3", ""),
+            "저작권유형": onedict.get("cpyrhtDivCd", ""),
             "GPSX좌표": onedict.get("mapx", ""),
             "GPSY좌표 ": onedict.get("mapy", ""),
             "MAP레벨": onedict.get("mlevel", ""),
@@ -125,7 +126,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = f'list/getList_{keyword}_korSearch{pageNumber}.csv'
+    filename = f'list/getList_{keyword}_korS{pageNumber}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:
