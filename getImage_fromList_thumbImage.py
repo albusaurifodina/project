@@ -4,13 +4,14 @@ import requests
 from PIL import Image
 from io import BytesIO
 
-# 저장할 폴더 생성
-save_folder = './../images/thumbimages'
+
+foldername = '물놀이장'
+save_folder = f'./../project/images/{foldername}'# 저장할 폴더 생성
 os.makedirs(save_folder, exist_ok=True)
 
 # CSV 파일에서 이미지 URL 읽기
 # csv_file = './../list/getList_물놀이장_korSearch1.csv'
-csv_file = './../list/test/searchlist1_Detail_해운대해수욕장.csv'
+csv_file = './../project/list/getList_물놀이장_korSearch1.csv'
 with open(csv_file, 'r', encoding='utf-8') as f:
     reader = csv.reader(f, delimiter=',')  # 혹은 ',' 사용 (CSV 구조에 따라)
 
@@ -19,7 +20,7 @@ with open(csv_file, 'r', encoding='utf-8') as f:
             continue  # 첫 줄이 헤더면 건너뛰기
 
         title = row[0]  # 예: '더베이 101'
-        img_url = row[1]  # 이미지 URL
+        img_url = row[2]  # 이미지 URL
 
         try:
             response = requests.get(img_url, timeout=10)

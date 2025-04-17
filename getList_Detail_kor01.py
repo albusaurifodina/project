@@ -1,9 +1,22 @@
-import os
 import json
 import urllib.request
+import urllib.parse
 import pandas as pd  # pandas 모듈
 
+'''
+국문관광정보 TourAPI4.0 / 11  detailImage1/  이미지정보조회 (상세정보4)
+각관광타입(관광지, 숙박등)에해당하는이미지URL 목록을조회하는기능입니다.
+
+http://apis.data.go.kr/B551011/KorService1/detailImage1
+f'&contentId={contentId}'
+contentId=키워드 리스트(예/물놀이 리스트)의 개별 상세이미지 리스트 생성
+'''
+
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
+
+contentId = 3014000
+keyword = '아이디서치테스트'
+encoded_keyword = urllib.parse.quote(keyword)
 
 pageNumber = 1
 pageSize = 100
@@ -19,9 +32,11 @@ def getDataFromWeb(url):
         print('크롤링 실패:', err)
         return None
 
+
 # 이미지 리스트와 정보 추출 함수
 def listExtractor(pageNumber, pageSize):
-    end_point = 'http://apis.data.go.kr/B551011/KorService1/areaCode1'
+    end_point = 'http://apis.data.go.kr/B551011/KorService1/detailImage1'
+
     params = (
         f'?serviceKey={service_key}'
         f'&numOfRows={pageSize}'
@@ -29,6 +44,9 @@ def listExtractor(pageNumber, pageSize):
         f'&MobileOS=ETC'
         f'&MobileApp=AppTest'
         f'&_type=json'
+        f'&contentId={contentId}'
+        f'&imageYN=Y'
+        f'&subImageYN=Y'
     )
 
     url = end_point + params
@@ -41,10 +59,11 @@ def listExtractor(pageNumber, pageSize):
         try:
             data = json.loads(raw_data)
             items = data['response']['body']['items']['item']
+
             if isinstance(items, dict):  # 단일 객체일 경우 리스트로 변환
                 items = [items]
             for item in items:
-                img_url = item.get('originimgurl')
+                img_url = item.get('originmgurl')
                 img_name = item.get('imgname', '정보없음')
                 cpyrht = item.get('cpyrhtDivCd', '알 수 없음')
             return data  # 전체 JSON 응답 반환
@@ -68,9 +87,12 @@ def makeListTable(listData):
 
     for onedict in items:
         onedict = {
-            'code': onedict.get('code'),
-            'name': onedict.get('name'),
-            'rnum': onedict.get('rnum'),
+            "콘텐츠제목": onedict.get("title", ""),
+            "콘텐츠ID": onedict.get("contentid", ""),
+            "이미지이름": onedict.get("imgname", ""),
+            "이미지주소": onedict.get("originmgurl", ""),
+            "저작권": onedict.get("cpyrhtDivCd", ""),
+            "썸네일이미지주소": onedict.get("smallimageurl", ""),
         }
         row = pd.DataFrame(onedict, index=[0])
         listTable = pd.concat([listTable, row], ignore_index=True)
@@ -85,7 +107,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = '../list/getlist_korAreaCode.csv'
+    filename = f'list/getList_{keyword}_korSearch{pageNumber}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:

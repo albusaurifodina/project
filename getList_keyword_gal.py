@@ -1,11 +1,25 @@
-import os
 import json
 import urllib.request
+import urllib.parse
 import pandas as pd  # pandas 모듈
+
+'''
+관광사진갤러리 / 키워드검색 목록 조회 / gallerySearchList1  
+키워드검색을 통해 사진갤러리 목록을 조회하는 기능입니다. 
+키워드검색을  통해  키워드  항목데이터와  매칭되는  정보를  목록으로  표출하며, 
+제목에 해당하는 그룹화된 목록을 제공합니다. 
+
+["물놀이", "바나나보트", "땅콩보트", "빅마블", "보트투어", "플라이피쉬", 
+"워터슬라이드", "수상튜브", "아쿠아보트", "워터바이크", 
+"패들보트", "카약", "수상 트램펄린", "수상 놀이공원", "수상 스쿠터"]
+'''
+
+keyword = '물놀이'
+encoded_keyword = urllib.parse.quote(keyword)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
-pageNumber = 1
+pageNumber = 3
 pageSize = 100
 
 # 웹페이지에서 데이터를 가져오는 함수
@@ -19,9 +33,11 @@ def getDataFromWeb(url):
         print('크롤링 실패:', err)
         return None
 
+
 # 이미지 리스트와 정보 추출 함수
 def listExtractor(pageNumber, pageSize):
-    end_point = 'http://apis.data.go.kr/B551011/KorService1/areaCode1'
+    end_point = 'http://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1'
+
     params = (
         f'?serviceKey={service_key}'
         f'&numOfRows={pageSize}'
@@ -29,6 +45,8 @@ def listExtractor(pageNumber, pageSize):
         f'&MobileOS=ETC'
         f'&MobileApp=AppTest'
         f'&_type=json'
+        f'&arrange=A'
+        f'&keyword={encoded_keyword}'
     )
 
     url = end_point + params
@@ -44,7 +62,7 @@ def listExtractor(pageNumber, pageSize):
             if isinstance(items, dict):  # 단일 객체일 경우 리스트로 변환
                 items = [items]
             for item in items:
-                img_url = item.get('originimgurl')
+                img_url = item.get('galWebImageUrl')
                 img_name = item.get('imgname', '정보없음')
                 cpyrht = item.get('cpyrhtDivCd', '알 수 없음')
             return data  # 전체 JSON 응답 반환
@@ -68,9 +86,16 @@ def makeListTable(listData):
 
     for onedict in items:
         onedict = {
-            'code': onedict.get('code'),
-            'name': onedict.get('name'),
-            'rnum': onedict.get('rnum'),
+            "제목": onedict.get("galTitle", ""),
+            "검색키워드": onedict.get("galSearchKeyword", ""),
+            "이미지URL": onedict.get("galWebImageUrl", ""),
+            "촬영장소": onedict.get("galPhotographyLocation", ""),
+            "촬영월": onedict.get("galPhotographyMont", ""),
+            "콘텐츠ID": onedict.get("galContentId", ""),
+            "콘텐츠타입ID": onedict.get("galContentTypeId", ""),
+            "등록일시": onedict.get("galCreatedtime", ""),
+            "수정일시": onedict.get("galModifiedtime", ""),
+            "사진작가": onedict.get("galPhotographer", ""),
         }
         row = pd.DataFrame(onedict, index=[0])
         listTable = pd.concat([listTable, row], ignore_index=True)
@@ -85,7 +110,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = '../list/getlist_korAreaCode.csv'
+    filename = f'list/searchlist1_{keyword}_{pageNumber}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:

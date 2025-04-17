@@ -3,8 +3,10 @@ import json
 import urllib.request
 import pandas as pd  # pandas 모듈
 
-contentTypeId = 14
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
+
+pageNumber = 1
+pageSize = 100
 
 # 웹페이지에서 데이터를 가져오는 함수
 def getDataFromWeb(url):
@@ -18,7 +20,7 @@ def getDataFromWeb(url):
         return None
 
 # 이미지 리스트와 정보 추출 함수
-def listExtractor(areaCode, pageNumber=1, pageSize=10):
+def listExtractor(pageNumber, pageSize):
     end_point = 'http://apis.data.go.kr/B551011/KorService1/categoryCode1'
     params = (
         f'?serviceKey={service_key}'
@@ -27,7 +29,6 @@ def listExtractor(areaCode, pageNumber=1, pageSize=10):
         f'&MobileOS=ETC'
         f'&MobileApp=AppTest'
         f'&_type=json'
-        f'&contentTypeId={contentTypeId}'
     )
 
     url = end_point + params
@@ -67,11 +68,6 @@ def makeListTable(listData):
 
     for onedict in items:
         onedict = {
-            'resultCode': onedict.get('resultCode'),
-            'resultMsg': onedict.get('resultMsg'),
-            'numOfRows': onedict.get('numOfRows'),
-            'pageNo': onedict.get('pageNo'),
-            'totalCount': onedict.get('totalCount'),
             'code': onedict.get('code'),
             'name': onedict.get('name'),
             'rnum': onedict.get('rnum'),
@@ -81,7 +77,7 @@ def makeListTable(listData):
 
 # 메인 실행 파트
 print('크롤링 중입니다. 잠시만 기다려 주세요...')
-list_Data = listExtractor(contentTypeId, pageNumber=1, pageSize=10)
+list_Data = listExtractor(pageNumber, pageSize)
 
 if list_Data:
     total_count = list_Data['response']['body'].get('totalCount')
@@ -89,7 +85,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = '../list/getlist_category.csv'
+    filename = '../list/getList_korCategoryCode.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:
