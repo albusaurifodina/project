@@ -20,7 +20,7 @@ cat3  소분류
 contentid  콘텐츠ID
 '''
 
-keyword = '보트'
+keyword = '화진포해수욕장'
 encoded_keyword = urllib.parse.quote(keyword)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
@@ -126,7 +126,7 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = f'list/getList_{keyword}_korS{pageNumber}.csv'
+    filename = f'list/{keyword}_korS{pageNumber}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:

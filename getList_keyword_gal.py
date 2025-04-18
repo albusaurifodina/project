@@ -14,7 +14,7 @@ import pandas as pd  # pandas 모듈
 "패들보트", "카약", "수상 트램펄린", "수상 놀이공원", "수상 스쿠터"]
 '''
 
-keyword = '물놀이'
+keyword = '해수욕장'
 encoded_keyword = urllib.parse.quote(keyword)
 
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
@@ -110,8 +110,9 @@ if list_Data:
     makeListTable(list_Data)
 
     # CSV로 저장
-    filename = f'list/getList_{keyword}_galS{pageNumber}.csv'
+    filename = f'./csvlist/{keyword}_galS{pageNumber}.csv'
     listTable.to_csv(filename, index=False, encoding='UTF-8')
     print(f"{filename} 파일이 저장되었습니다.")
 else:
     print("리스트 데이터를 처리할 수 없습니다.")
+
