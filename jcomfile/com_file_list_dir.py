@@ -11,8 +11,8 @@ import csv
 from datetime import datetime
 
 # 설정
-root_dir = r"./../../project/images_0421_해수욕장"
-output_csv = f"./../csvlist/etc/해수욕장_이미지리스트_20250421.csv"
+root_dir = r"./../../project/images_0421_해변"
+output_csv = f"./../csvlist/etc/해변_이미지리스트_20250421.csv"
 
 exclude_dirs = {'.git', '__pycache__', '.ipynb_checkpoints', 'venv', '.venv'}
 

@@ -13,7 +13,7 @@ keyword = '해변'
 save_dir = os.path.join('images', keyword)
 
 # CSV 파일 불러오기 (KEYID: 콘텐츠 ID, TITLE: 제목)
-df = pd.read_csv('csvlist/해변_korS_total2.csv')
+df = pd.read_csv('csvlist/해변_korS_total.csv')
 
 # 이미지 저장 함수
 def save_image_from_url(img_url, save_dir='images', filename=None):
