@@ -22,7 +22,7 @@ import urllib.parse
 import pandas as pd
 import os
 
-keyword = '해수욕장'
+keyword = '해변'
 encoded_keyword = urllib.parse.quote(keyword)
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 pageSize = 100

@@ -9,11 +9,11 @@ import pandas as pd
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
 # 키워드명 및 CSV 경로
-keyword = '해수욕장'
+keyword = '해변'
 save_dir = os.path.join('images', keyword)
 
 # CSV 파일 불러오기 (KEYID: 콘텐츠 ID, TITLE: 제목)
-df = pd.read_csv('csvlist/해수욕장_korS_total.csv')
+df = pd.read_csv('csvlist/해변_korS_total2.csv')
 
 # 이미지 저장 함수
 def save_image_from_url(img_url, save_dir='images', filename=None):
