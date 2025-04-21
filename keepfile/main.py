@@ -30,6 +30,6 @@ if image_data:
     # CSV 저장
     filename = 'images/project.get_image_list.csv'
     image_df.to_csv(filename, index=False, encoding='utf-8')
-    print(f"✅ {filename} 파일이 저장되었습니다.")
+    print(f"{filename} 파일이 저장되었습니다.")
 else:
-    print("❌ 데이터를 받아오지 못했습니다.")
+    print(" 데이터를 받아오지 못했습니다.")

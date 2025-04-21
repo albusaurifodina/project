@@ -5,9 +5,6 @@ import json
 # 발급받은 서비스 키 (URL 인코딩되어 있어야 함)
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
-keyword = '물놀이장'
-encoded_keyword = urllib.parse.quote(keyword)
-
 # 웹에서 데이터 요청
 def getDataFromWeb(url):
     try:
