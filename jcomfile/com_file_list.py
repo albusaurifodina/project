@@ -2,17 +2,17 @@
 com_file_list.py 파일
 폴더 속 파일 정보를 리스트로 추출하는 파일
 
-타겟 폴더, 생성 파일 path 꼭 확인할 것
-root_dir = r".." # 타겟 폴더
-output_csv = f"./list/etc/list_project_file_20250417.csv" # 생성파일
+dir_name = "project" # 시작 폴더 경로 설정
+root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
+output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
 '''
 import os
 import csv
 from datetime import datetime
 
-# 시작 폴더 경로 설정
-root_dir = r".."  # 원하는 경로로 바꿔주세요
-output_csv = f"./list/etc/list_project_file_20250417.csv"
+dir_name = "project" # 시작 폴더 경로 설정
+root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
+output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
 
 # 제외할 디렉토리 목록
 exclude_dirs = {'.git', '.ipynb_checkpoints', '__pycache__', '.venv', 'venv', 'node_modules', 'dist', 'build', '.idea', '.vscode'}

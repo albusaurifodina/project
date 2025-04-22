@@ -8,8 +8,7 @@ getList_kor_keyword_02.py 에서 페이지 자동생성 기능 추가
 keyword = '검색 키워드'
 
 사진없는 항목 제외된 리스트
-f'csvlist/{키워드}_korS.csv'
-
+filename = f'csvlist/{keyword}_korS_total.csv'
 사진없는 항목 리스트
 f'csvlist/{키워드}_skipped_korS.csv'
 
@@ -22,7 +21,7 @@ import urllib.parse
 import pandas as pd
 import os
 
-keyword = '해변'
+keyword = '요트'
 encoded_keyword = urllib.parse.quote(keyword)
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 pageSize = 100

@@ -2,17 +2,17 @@
 com_file_list_hidden.py 파일
 폴더 속 파일 정보 추출(숨겨진 파일 포함)
 
-타겟 폴더, 생성 파일 이름과 path 꼭 확인할 것
-root_dir = r"./../../project/keepfile" 타겟 폴더
-output_csv = f"./../csvlist/etc/list_keepfile_202504.csv" 생성 파일
+dir_name = "project" # 시작 폴더 경로 설정
+root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
+output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
 '''
 import os
 import csv
 from datetime import datetime
 
-# 시작 폴더 경로 설정
-root_dir = r".."  # 원하는 경로로 바꿔주세요
-output_csv = f"./list/etc/list_project_file_20250417.csv"
+dir_name = "project" # 시작 폴더 경로 설정
+root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
+output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
 
 # 결과 저장 리스트
 file_list = []

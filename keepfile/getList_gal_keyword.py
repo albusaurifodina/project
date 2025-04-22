@@ -1,8 +1,7 @@
 '''
 getList_gal_keyword.py
 PhotoGalleryService1/gallerySearchList1'
-키워드검색을 통해  키워드  항목데이터와  매칭되는  정보를  목록으로  표출하며,
-제목에 해당하는 그룹화된 목록을 제공합니다.
+관광사진 서비스 갤러리 키워드에 해당하는 컨텐츠 목록저장
 
 keyword = '검색 키워드'
 filename = f'./csvlist/{검색 키워드}_galS{검색 페이지 번호}.csv'
