@@ -1,24 +1,20 @@
 '''
-getImage_csv_korIdDetail.py 파일 # 파일명 변경시 같이 변경 요망
+getImage_korIdDetail.py 파일 # 파일명 변경시 같이 변경 요망
 키워드로 추출한 csv 파일 리스트의 컨텐츠ID에 해당하는 url에 접속 상세 이미지 생성
-
 keyword = '키워드'
 저장폴더 = '이미지폴더' 안 키워드 폴더)
 파일이름 {safe_title}_{contentId}_{idx + 1}.jpg # 깔끔한 파일명!
 '''
-
 import urllib.request
 import urllib.parse
-import json
-import os
-import csv
+import json, os, csv
 import pandas as pd
 
 # 발급받은 서비스 키
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
 # 키워드명 및 CSV 경로
-keyword = '요트'
+keyword = '서핑'
 save_dir = os.path.join('images', keyword)
 
 # CSV 파일 불러오기 (KEYID: 콘텐츠 ID, TITLE: 제목)
