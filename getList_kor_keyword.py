@@ -20,7 +20,7 @@ import urllib.parse
 import pandas as pd
 import os
 
-keyword = '서핑'
+keyword = '카약'
 encoded_keyword = urllib.parse.quote(keyword)
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 pageSize = 100

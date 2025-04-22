@@ -17,7 +17,7 @@ service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsL
 
 # 키워드명 및 CSV 경로
 keyword = '서핑'
-save_dir = os.path.join('images', keyword)
+save_dir = os.path.join('../images', keyword)
 
 # CSV 파일 불러오기 (KEYID: 콘텐츠 ID, TITLE: 제목)
 df = pd.read_csv(f'csvlist/{keyword}_korS_total.csv')
