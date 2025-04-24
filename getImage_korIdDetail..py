@@ -14,7 +14,7 @@ import pandas as pd
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
 
 # 키워드명 및 CSV 경로
-keyword = '카약'
+keyword = '워터파크'
 save_dir = os.path.join('images', keyword)
 
 # CSV 파일 불러오기 (KEYID: 콘텐츠 ID, TITLE: 제목)

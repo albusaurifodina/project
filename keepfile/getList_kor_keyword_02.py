@@ -1,8 +1,7 @@
 '''
 getList_kor_keyword_02.py
 국문관광정보 TourAPI4.0 / searchKeyword1 / 키워드검색조회
-키워드로 검색을 하여 관광타입별 또는 전체 목록을 조회하는 기능입니다.
-파라미터에 따라 제목순, 수정일순(최신순), 등록일순 정렬검색을 제공합니다.
+키워드로 검색을 하여 관광타입별 목록을 제공.
 
 keyword = '검색 키워드'
 
@@ -21,9 +20,7 @@ import pandas as pd  # pandas 모듈
 
 keyword = '해수욕장'
 encoded_keyword = urllib.parse.quote(keyword)
-
 service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
-
 pageNumber = 3
 pageSize = 100
 
