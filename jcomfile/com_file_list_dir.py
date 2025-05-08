@@ -10,8 +10,8 @@ import os
 import csv
 from datetime import datetime
 
-dir_name = "project" # 시작 폴더 경로 설정
-root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
+dir_name = "ProjectMine" # 시작 폴더 경로 설정
+root_dir = f"./../../../{dir_name}"  # 원하는 경로로 바꿔주세요
 output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
 
 exclude_dirs = {'.git', '__pycache__', '.ipynb_checkpoints', 'venv', '.venv', 'images_0417', 'images_0418_물놀이', 'images_0421_해변', 'images_0421_해수욕장' }

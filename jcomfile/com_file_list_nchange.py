@@ -6,22 +6,23 @@ dir_name = "project" # 시작 폴더 경로 설정
 root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
 output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
 '''
+import datetime
 import os
 import csv
 
-dir_name = "project" # 시작 폴더 경로 설정
-root_dir = f"./../../{dir_name}"  # 원하는 경로로 바꿔주세요
-output_csv = f"./../csvlist/etc/{dir_name}_list.csv"
+dir_name = "day&" # 시작 폴더 경로 설정
+root_dir = f"./../../../0_NOTE/day&/"  # 원하는 경로로 바꿔주세요
+output_csv = f"./../../../0_NOTE/{dir_name}/{dir_name}.csv"
 exclude_dirs = {'.git', '__pycache__', '.ipynb_checkpoints', 'venv', '.venv', 'node_modules', '.vscode', '.idea'}
-include_extensions = {'.jpg', '.png', '.py', '.csv'}  # 원하는 확장자
-include_keywords = {'getImage_'} # 파일명에 포함된 키워드
+include_extensions = {'.jpg', '.png', '.py', '.csv', '.txt'}  # 원하는 확장자
+include_keywords = {'프로젝트_202504'} # 파일명에 포함된 키워드
 
 # 이름 변경 설정
 rename_enabled = True
 rename_mode = "replace"  # "prefix", "suffix", "replace"
-rename_value = "_List_"  # 접두사/접미사 혹은 교체할 단어
-replace_from = "_List_"       # replace 모드에서 바꿀 단어
-replace_to = "_"         # replace 모드에서 교체할 단어
+rename_value = ""  # 접두사/접미사 혹은 교체할 단어
+replace_from = "프로젝트_202504"       # replace 모드에서 바꿀 단어
+replace_to = "04.txt"         # replace 모드에서 교체할 단어
 
 # 결과 저장 리스트
 file_list = []
