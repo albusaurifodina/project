@@ -1,9 +1,0 @@
-# Python
-__pycache__/
-*.pyc
-
-# 가상환경
-venv/
-
-# 환경 변수 파일
-.env
