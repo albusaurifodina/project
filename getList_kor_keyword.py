@@ -1,26 +1,23 @@
 '''
 getList_kor_keyword.py
 국문관광정보 TourAPI4.0 / searchKeyword1 / 키워드검색조회
-키워드로 검색을 하여 관광타입별 또는 전체 목록을 조회하는 기능입니다.
-
+키워드로 검색을 하여 관광타입별 또는 전체 목록을 조회하여 .csv 파일로 저장하는 기능
 keyword = '검색 키워드'
 filename = f'csvlist/{keyword}_korS_total.csv' 사진없는 항목 제외된 리스트
 f'csvlist/{키워드}_skipped_korS.csv' 사진없는 항목 리스트
 '''
-
 import json
 import urllib.request
 import urllib.parse
 import pandas as pd
 import os
 
-from django.conf.global_settings import SECRET_KEY
 from dotenv import load_dotenv
 load_dotenv()
 
 keyword = '래프팅'
 encoded_keyword = urllib.parse.quote(keyword)
-service_key = SECRET_KEY
+service_key = os.getenv("SECRET_KEY")
 pageSize = 100
 
 # csvlist 폴더가 없으면 생성

@@ -9,12 +9,11 @@ import urllib.request
 import urllib.parse
 import json, os, csv
 import pandas as pd
-from django.conf.global_settings import SECRET_KEY
 from dotenv import load_dotenv
 load_dotenv()
 
 # 발급받은 서비스 키
-service_key = SECRET_KEY
+service_key = os.getenv("SECRET_KEY")
 
 # 키워드명 및 CSV 경로
 keyword = '래프팅'
