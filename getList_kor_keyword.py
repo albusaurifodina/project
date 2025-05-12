@@ -2,16 +2,10 @@
 getList_kor_keyword.py
 국문관광정보 TourAPI4.0 / searchKeyword1 / 키워드검색조회
 키워드로 검색을 하여 관광타입별 또는 전체 목록을 조회하는 기능입니다.
-파라미터에 따라 제목순, 수정일순(최신순), 등록일순 정렬검색을 제공합니다.
-getList_kor_keyword_02.py 에서 페이지 자동생성 기능 추가
 
 keyword = '검색 키워드'
-사진없는 항목 제외된 리스트
-filename = f'csvlist/{keyword}_korS_total.csv'
-사진없는 항목 리스트
-f'csvlist/{키워드}_skipped_korS.csv'
-
-['물놀이','해변', '해수욕장'] 등등
+filename = f'csvlist/{keyword}_korS_total.csv' 사진없는 항목 제외된 리스트
+f'csvlist/{키워드}_skipped_korS.csv' 사진없는 항목 리스트
 '''
 
 import json
@@ -20,9 +14,13 @@ import urllib.parse
 import pandas as pd
 import os
 
+from django.conf.global_settings import SECRET_KEY
+from dotenv import load_dotenv
+load_dotenv()
+
 keyword = '래프팅'
 encoded_keyword = urllib.parse.quote(keyword)
-service_key = 'azksr7Fgk8fnWawWSRq%2FRzde1JYejaLxXVlKfnCxECuPzkjiwupRnOOvJKZDEsLUwNDmI4J%2BYdJm4QcpiSAGRw%3D%3D'
+service_key = SECRET_KEY
 pageSize = 100
 
 # csvlist 폴더가 없으면 생성

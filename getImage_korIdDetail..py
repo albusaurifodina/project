@@ -1,9 +1,9 @@
 '''
-getImage_korIdDetail.py 파일 # 파일명 변경시 같이 변경 요망
+getImage_korIdDetail.py 파일 #
 키워드로 추출한 csv 파일 리스트의 컨텐츠ID에 해당하는 url에 접속 상세 이미지 생성
 keyword = '키워드'
 저장폴더 = '이미지폴더' 안 키워드 폴더)
-파일이름 {safe_title}_{contentId}_{idx + 1}.jpg # 깔끔한 파일명!
+파일이름 {safe_title}_{contentId}_{idx + 1}.jpg
 '''
 import urllib.request
 import urllib.parse
