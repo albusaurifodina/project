@@ -15,7 +15,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-keyword = '래프팅'
+keyword = '수상스포츠'
 encoded_keyword = urllib.parse.quote(keyword)
 service_key = os.getenv("SECRET_KEY")
 pageSize = 100
