@@ -6,4 +6,4 @@ __pycache__/
 venv/
 
 # 환경 변수 파일
-project/.env
+.env
